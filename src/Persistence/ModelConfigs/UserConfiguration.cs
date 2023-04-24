@@ -27,9 +27,24 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .OnDelete(DeleteBehavior.Cascade)
             .IsRequired();
         
+        // Implicit mapping table that doesn't affect the business entity itself.
         builder.HasMany(u => u.Profiles)
             .WithMany()
             .UsingEntity<AuthorProfile>();
+
+        // Auto include relations to avoid partially hydrated objects.
+        builder.Navigation(u => u.UserSettings)
+            .UsePropertyAccessMode(PropertyAccessMode.Property)
+            .AutoInclude();
+
+        // Soft delete so we're not losing data
+        builder.Property<DateTimeOffset?>("Deleted");
+        builder.HasQueryFilter(u => EF.Property<DateTimeOffset?>(u, "Deleted") != null);
+
+        // Typical additional properties that are irrelevant for the entity itself but important in terms of
+        // tracability/auditability
+        builder.Property<DateTimeOffset>("Created").ValueGeneratedOnAdd().HasDefaultValueSql("getutcdate()");
+        builder.Property<DateTimeOffset>("Updated").ValueGeneratedOnUpdate().HasDefaultValueSql("getutcdate()");
     }
 }
 
@@ -42,6 +57,8 @@ internal class UserSettingsConfiguration : IEntityTypeConfiguration<UserSettings
         // Tweak
         builder.HasOne(us => us.Tier)
             .WithMany();
+
+        builder.Navigation(us => us.Tier).AutoInclude();
     }
 }
 
@@ -62,8 +79,8 @@ internal class UserTiersData : IEntityTypeConfiguration<UserTier>
         builder.HasData(new List<UserTier>
         {
             new(1, "Free"),
-            new(2, "Free"),
-            new(3, "Free"),
+            new(2, "Basic"),
+            new(3, "Premium"),
         });
     }
 }

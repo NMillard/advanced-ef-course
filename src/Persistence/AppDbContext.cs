@@ -17,13 +17,17 @@ internal class AppDbContext : DbContext
      */
     public DbSet<User> Users { get; set; }
 
+    // Add articles as an exercise
+    public DbSet<Article> Articles { get; set; }
+
+    // Enable errors
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.EnableDetailedErrors();
-
         base.OnConfiguring(optionsBuilder);
     }
 
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly); // Support open/closed principal

@@ -1,5 +1,4 @@
 using Domain;
-using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Xunit.Abstractions;
 
@@ -17,24 +16,15 @@ public class UserQueries : IClassFixture<DatabaseFixture>
     private readonly AppDbContext context;
 
     [Fact]
-    public async Task QueryingUser()
+    public async Task SimpleQuery()
     {
-        List<User> e = context.Users
-            .Include(u => u.UserSettings)
-            .ThenInclude(u => u.Tier)
-            .Include(u => u.Profiles)
-            .ToList();
-        
-        testOutputHelper.WriteLine(e.Count.ToString());
+        List<User> e = context.Users.ToList();
     }
 
+    
     [Fact]
     public void QueryingUserWithSettings()
     {
-        List<User> e = context.Users
-            .Include(u => u.Profiles)
-            .ToList();
-        
-        testOutputHelper.WriteLine(e.Count.ToString());
+        // Update the user configuration 
     }
 }

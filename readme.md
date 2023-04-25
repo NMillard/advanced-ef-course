@@ -97,3 +97,53 @@ Run generate SQL script.
 - https://creately.com/guides/er-diagrams-tutorial/
 - https://vertabelo.com/blog/vertabelo-tips-good-er-diagram-layout/
 - https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=fluent-api
+
+## Structure
+Section 1: Introduction to OR/Ms and Benefits
+
+- Object Relation Mapping (OR/M) explained
+- Benefits of using an OR/M
+- Why choose EntityFramework Core over other OR/Ms
+
+Section 2: Key Concepts in EF Core
+
+- DbContext explained
+- IEntityTypeConfiguration<T>
+- Converts, Constraints, and Migrations
+- Code first vs. Database first
+
+Section 3: Relationships in EF Core
+
+    Joins in EF Core
+    One-to-one relationships
+    One-to-many relationships
+    Many-to-many relationships
+
+Section 4: Encapsulating Models and Class Standards
+
+    Encapsulating models for better structure
+    Good class standards for EF Core
+
+Section 5: Securely Storing Connection Strings
+
+    How to securely store connection strings in production environments
+    Best practices for connection string management
+
+Section 6: Advanced Entity Configuration
+
+    Soft delete in EF Core
+    Adding timestamps to entities
+    Auto includes in EF Core
+
+Section 7: Adding Data on Migrate
+
+    Adding data when creating a database
+    Creating seed data in EF Core
+
+Section 8: Testing with a Real Database using Testcontainers
+
+    How to test your EF Core application with a real database using testcontainers
+    Best practices for testing EF Core applications
+
+Overall Objective:
+By the end of this course, students will have a comprehensive understanding of EntityFramework Core and be able to use it effectively in real-world software development projects. They will be able to encapsulate models, configure advanced entity settings, and use testcontainers to test their applications with a real database.

@@ -67,11 +67,11 @@ erDiagram
         guid author_id FK
     }
 
-    Comment {
+    Response {
         guid id PK
         guid article_id FK
     }
-    Comment }o--|| Article: Has
+    Response }o--|| Article: Has
 ```
 
 ### Article

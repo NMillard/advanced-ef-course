@@ -1,47 +1,24 @@
 ---
+title: Introduction - Start here
+slug: /
 sidebar_position: 1
 ---
 
-# Tutorial Intro
-
-Let's discover **Docusaurus in less than 5 minutes**.
-
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+# Introduction
+By the end of this course, you'll have comprehensive understanding of EntityFramework Core and be able to use it effectively in real-world software development projects. You will be able to:
+- [x] Use proper encapsulation,
+- [x] Configure advanced entity settings
+- [x] Use testcontainers to test with a real database.
 
 ### What you'll need
+Make sure to have installed the following:
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- .NET 7 SDK
+- nodejs 16 or above
+- Have a .NET capable IDE install (JetBrains Rider, Visual Studio, VS Code)
+- Docker and Docker-compose
 
-## Generate a new site
+### Start an MS-SQL Server
+If you don't already have an MS-SQL server running on your computer, then run the docker-compose file to have one started on port `1499` for you.
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+From the root of the solution folder, run `docker-compose up`. Then connect to the database server and create a database called `AdvancedORM`.

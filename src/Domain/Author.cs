@@ -6,12 +6,17 @@ public class Author
     {
         Id = Guid.NewGuid();
         PenName = penName;
+        articles = new List<Article>();
     }
     
-    public Guid Id { get; }
-    
+    private List<Article> articles;
+
+    public Guid Id { get; private set; }
+
     /**
      * An artistic name the author has picked - or the author's own name.
      */
     public string PenName { get; set; }
+
+    public IEnumerable<Article> Articles => articles.AsReadOnly();
 }

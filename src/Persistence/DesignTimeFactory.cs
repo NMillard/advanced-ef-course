@@ -27,24 +27,26 @@ namespace Persistence;
 [UsedImplicitly]
 internal class DesignTimeFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
-    public DesignTimeFactory() { }
-
-    public DesignTimeFactory(string connectionString) => this.connectionString = connectionString;
-    
-    private readonly string? connectionString;
-
-    public AppDbContext CreateDbContext(string[] args)
+    public DesignTimeFactory()
     {
         IConfiguration configurations = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .AddUserSecrets<DesignTimeFactory>()
-                .Build()
-            ;
+                .Build();
+        
+        connectionString = configurations.GetConnectionString("Sql") ?? string.Empty;
+    }
 
-        string? s = connectionString ?? configurations.GetConnectionString("sql");
+    public DesignTimeFactory(string connectionString) : this() 
+        => this.connectionString = connectionString;
+    
+    private readonly string? connectionString;
+
+    public AppDbContext CreateDbContext(string[] args)
+    {
         DbContextOptionsBuilder builder = new DbContextOptionsBuilder()
-            .UseSqlServer(s, optionsBuilder =>
+            .UseSqlServer(connectionString, optionsBuilder =>
             {
                 optionsBuilder.MigrationsHistoryTable("__EFMigrationsHistory");
             });

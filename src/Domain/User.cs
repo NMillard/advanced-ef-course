@@ -10,22 +10,28 @@ public class User
 {
     public User()
     {
-        profiles = new List<Author>();
+        Id = Guid.NewGuid();
+        profiles = new List<AuthorProfile>();
     }
 
-    private readonly List<Author> profiles;
+    private readonly List<AuthorProfile> profiles;
 
-    public Guid Id { get; set; }
-    public string Username { get; set; }
-    public UserSettings UserSettings { get; set; }
+    public Guid Id { get; private set; }
+    public string Username { get; private set; }
+    public UserSettings Settings { get; private set; }
 
-    public IEnumerable<Author> Profiles => profiles.AsReadOnly();
+    public IEnumerable<AuthorProfile> Profiles => profiles.AsReadOnly();
 }
 
 public class UserSettings
 {
-    public Guid Id { get; set; }
-    public UserTier Tier { get; set; }
+    public UserSettings()
+    {
+        Id = Guid.NewGuid();
+    }
+    
+    public Guid Id { get; private set; }
+    public UserTier Tier { get; private set; }
 }
 
 public record UserTier(int Id, string TierName);

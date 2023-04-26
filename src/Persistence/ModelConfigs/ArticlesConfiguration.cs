@@ -14,9 +14,9 @@ public class ArticlesConfiguration : IEntityTypeConfiguration<Article>
         builder.Property(a => a.SubTitle).HasMaxLength(250);
         builder.Property(a => a.Content);
 
-        builder.Property(a => a.Tags).HasConversion(
-            tags => string.Join(",", tags),
-            s => s.Split(",", StringSplitOptions.None).Select(s1 => new CategoryTag(s1))
-        );
+        // builder.Property(a => a.Tags).HasConversion(
+        //     tags => string.Join(",", tags),
+        //     s => s.Split(",", StringSplitOptions.None).Select(s1 => new CategoryTag(s1))
+        // );
     }
 }

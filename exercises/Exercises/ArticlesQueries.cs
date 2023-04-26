@@ -1,4 +1,3 @@
-using Domain;
 using Persistence;
 using Xunit.Abstractions;
 
@@ -15,13 +14,10 @@ public class ArticlesQueries : IClassFixture<DatabaseFixture>
     }
     
     private readonly AppDbContext context;
-    
-    [Fact]
-    public void NAME()
-    {
-        List<Article> articles = context.Articles
-            .ToList();
 
-        testOutputHelper.WriteLine(articles.Count.ToString());
+    [Fact]
+    public void DemoQueries()
+    {
+        // Run your queries here.
     }
 }

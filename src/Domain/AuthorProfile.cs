@@ -1,6 +1,4 @@
-using Domain;
-
-namespace Persistence;
+namespace Domain;
 
 public class AuthorProfile
 {

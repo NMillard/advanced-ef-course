@@ -3,7 +3,7 @@ using Persistence;
 
 namespace Exercises;
 
-public class DatabaseFixture : IDisposable
+public class DatabaseFixture
 {
     public DatabaseFixture()
     {
@@ -17,6 +17,4 @@ public class DatabaseFixture : IDisposable
     }
 
     internal AppDbContext DbContext { get; private set; }
-    
-    public void Dispose() { }
 }

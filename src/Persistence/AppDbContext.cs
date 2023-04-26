@@ -20,11 +20,9 @@ internal class AppDbContext : DbContext
     // Add articles as an exercise
     public DbSet<Article> Articles { get; set; }
 
-    // Enable errors
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.EnableDetailedErrors();
-        base.OnConfiguring(optionsBuilder);
     }
 
     

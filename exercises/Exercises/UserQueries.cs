@@ -18,13 +18,6 @@ public class UserQueries : IClassFixture<DatabaseFixture>
     [Fact]
     public async Task SimpleQuery()
     {
-        List<User> e = context.Users.ToList();
-    }
-
-    
-    [Fact]
-    public void QueryingUserWithSettings()
-    {
-        // Update the user configuration 
+        var result = context.Users; // dot away
     }
 }

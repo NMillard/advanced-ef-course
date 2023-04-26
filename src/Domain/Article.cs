@@ -23,8 +23,6 @@ public class Article
     /// The image that is commonly displayed at the top of an article.
     /// </summary>
     public byte[]? PictureLead { get; set; }
-
-    public IEnumerable<CategoryTag> Tags { get; set; }
 }
 
 public record CategoryTag(string TagName);

@@ -5,7 +5,9 @@ namespace Exercises;
 
 public class ArticlesQueries : IClassFixture<DatabaseFixture>
 {
+
     private readonly ITestOutputHelper testOutputHelper;
+    private readonly AppDbContext context;
 
     public ArticlesQueries(DatabaseFixture fixture, ITestOutputHelper testOutputHelper)
     {
@@ -13,10 +15,9 @@ public class ArticlesQueries : IClassFixture<DatabaseFixture>
         context = fixture.DbContext;
     }
     
-    private readonly AppDbContext context;
 
     [Fact]
-    public void DemoQueries()
+    public void Playground()
     {
         // Run your queries here.
     }

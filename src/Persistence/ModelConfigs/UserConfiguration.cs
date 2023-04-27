@@ -10,7 +10,7 @@ namespace Persistence.ModelConfigs;
  * Start with minimal implementation only having the "ToTable" call. Then run a migration and inspect the result.
  * Come back to this class and tweak the table configuration as needed.
  */
-internal class UserConfiguration : AuditableEntityConfiguration<User>
+internal class UserConfiguration : AuditableEntityConfiguration<User>, IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {

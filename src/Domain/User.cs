@@ -17,7 +17,7 @@ public class User
     private readonly List<AuthorProfile> profiles;
 
     public Guid Id { get; private set; }
-    public string Username { get; private set; }
+    public required string Username { get; init; }
     public UserSettings Settings { get; private set; }
 
     public IEnumerable<AuthorProfile> Profiles => profiles.AsReadOnly();

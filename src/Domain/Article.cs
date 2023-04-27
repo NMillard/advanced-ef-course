@@ -1,16 +1,16 @@
 namespace Domain;
 
-/*
- * Exercise class
- *
- * Currently, this class corresponds to what beginner .NET developers create. Let's make it worthy of
- * software professionals' standards.
- *
- * 1. Protect the class' invariants.
- * 2. 
- */
+
+// TODO: Add Tags list and update entity configuration
 public class Article
 {
+    private readonly List<CategoryTag> tags;
+    
+    public Article()
+    {
+        tags = new List<CategoryTag>();
+    }
+
     public Guid Id { get; set; }
     
     public required string Title { get; set; }
@@ -23,6 +23,8 @@ public class Article
     /// The image that is commonly displayed at the top of an article.
     /// </summary>
     public byte[]? PictureLead { get; set; }
+
+    public IEnumerable<CategoryTag> Tags => tags.AsReadOnly();
 }
 
 public record CategoryTag(string TagName);

@@ -13,9 +13,7 @@ internal class UserTiersConfiguration : IEntityTypeConfiguration<UserTier>
 {
     public void Configure(EntityTypeBuilder<UserTier> builder)
     {
-        builder.ToTable("Tiers", "Users");
-
-        builder.Property(t => t.TierName).HasMaxLength(20).IsRequired();
+        
     }
 }
 
@@ -25,16 +23,13 @@ internal class UserTiersConfiguration : IEntityTypeConfiguration<UserTier>
  * id = 1 TierName = Free
  * id = 2 TierName = Basic
  * id = 3 TierName = Premium
+ *
+ * Hint: use builder.HasData()
  */
 internal class UserTiersData : IEntityTypeConfiguration<UserTier>
 {
     public void Configure(EntityTypeBuilder<UserTier> builder)
     {
-        builder.HasData(new List<UserTier>
-        {
-            new(1, "Free"),
-            new(2, "Basic"),
-            new(3, "Premium"),
-        });
+        
     }
 }

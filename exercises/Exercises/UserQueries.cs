@@ -3,7 +3,9 @@ using Persistence;
 using Xunit.Abstractions;
 
 namespace Exercises;
-
+/*
+ * TODO: Before using this, remember to uncomment the code in DatabaseFixture.cs
+ */
 public class UserQueries : IClassFixture<DatabaseFixture>
 {
     private readonly ITestOutputHelper testOutputHelper;
@@ -18,13 +20,14 @@ public class UserQueries : IClassFixture<DatabaseFixture>
     [Fact]
     public void SeedWithDefaultUser()
     {
-        var user = new User
-        {
-            Username = "something",
-        };
-
-        context.Users.Add(user);
-        context.SaveChanges();
+        // TODO: Uncomment this
+        // var user = new User
+        // {
+        //     Username = "something",
+        // };
+        //
+        // context.Users.Add(user);
+        // context.SaveChanges();
     }
 
     [Fact]

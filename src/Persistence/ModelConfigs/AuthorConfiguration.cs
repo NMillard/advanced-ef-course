@@ -13,9 +13,5 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 {
     public void Configure(EntityTypeBuilder<Author> builder)
     {
-        builder.ToTable("Authors", "Authors");
-        
-        builder.HasKey(a => a.Id);
-        builder.Property(a => a.PenName).HasMaxLength(100).IsRequired();
     }
 }
